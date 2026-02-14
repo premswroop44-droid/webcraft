@@ -565,6 +565,102 @@ nav a{
         width:100%;
     }
 }
+/* Desktop hover normal rahe */
+.card:hover {
+    transform: translateY(-8px);
+    background: #00fff2;
+}
+
+/* Mobile me hover effect automatically show */
+@media (max-width: 768px) {
+
+    .card {
+        background: #546f99;
+        transform: none;
+    }
+
+        .card:hover {
+            transform: none;
+            background: #48ff38;
+        }
+}
+/* WHY SECTION */
+
+.why-section{
+    padding:100px 8%;
+    background:#111827;
+    text-align:center;
+    color:white;
+}
+
+.why-section h2{
+    margin-bottom:50px;
+    font-size:2.2rem;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.why-card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.why-card:hover{
+    transform:translateY(-8px);
+    background:#38bdf8;
+    color:black;
+}
+.stats-section{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    padding:80px 8%;
+    background:#0f172a;
+    color:white;
+    flex-wrap:wrap;
+}
+
+.stat-box{
+    text-align:center;
+}
+
+.stat-box h2{
+    font-size:2.5rem;
+    color:#38bdf8;
+}
+.testimonial-section{
+    padding:100px 8%;
+    background:#111827;
+    text-align:center;
+    color:white;
+}
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    margin-top:50px;
+}
+
+.testimonial{
+    background:#1e293b;
+    padding:30px;
+    border-radius:15px;
+}
+.faq-section{
+    padding:80px 8%;
+    background:#0f172a;
+    color:white;
+}
+.faq-item{
+    margin-bottom:20px;
+}
 </style>
 
 </head>
@@ -579,6 +675,7 @@ nav a{
 <a href="portfolio.html">Portfolio</a>
 <a href="#pricing">Pricing</a>
 <a href="contact.html">Contact</a>
+<a href="#why-section">Why Choose Us</a>
 </nav>
 </header>
 <div class="menu-toggle">☰</div>
@@ -641,6 +738,38 @@ nav a{
     <p>Android & iOS apps with modern UI and powerful backend.</p>
 </div>
 </div>
+<div class="card">
+    <h3>Website & App Repair</h3>
+    <p>Bug fixing, performance optimization and technical maintenance services.</p>
+</div>
+<section id="why-section" class="why-section">
+    <h2>Why Choose WebCraft?</h2>
+
+    <div class="why-grid">
+        <div class="why-card">⚡ Fast Delivery</div>
+        <div class="why-card">💎 Clean & Modern Design</div>
+        <div class="why-card">🔒 Secure & Scalable Code</div>
+        <div class="why-card">📱 Web + App Solutions</div>
+        <div class="why-card">🛠 Repair & Maintenance</div>
+        <div class="why-card">💬 24/7 Support</div>
+    </div>
+</section>
+<section class="stats-section">
+    <div class="stat-box">
+        <h2><span class="counter" data-target="150">0</span>+</h2>
+        <p>Websites Delivered</p>
+    </div>
+
+    <div class="stat-box">
+        <h2><span class="counter" data-target="50">0</span>+</h2>
+        <p>Mobile Apps Built</p>
+    </div>
+
+    <div class="stat-box">
+        <h2><span class="counter" data-target="98">0</span>%</h2>
+        <p>Client Satisfaction</p>
+    </div>
+</section>
 
 <section id="portfolio">
 <h2 style="text-align:center; margin-bottom:60px;">Our Work</h2>
@@ -676,6 +805,29 @@ nav a{
 
 </div>
 </section>
+<section class="testimonial-section">
+    <h2>What Our Clients Say</h2>
+
+    <div class="testimonial-grid">
+        <div class="testimonial">
+            ⭐⭐⭐⭐⭐
+            <p>"Amazing service! Delivered my website in just 3 days."</p>
+            <h4>– Rahul Sharma</h4>
+        </div>
+
+        <div class="testimonial">
+            ⭐⭐⭐⭐⭐
+            <p>"Very professional and responsive team."</p>
+            <h4>– Neha Verma</h4>
+        </div>
+
+        <div class="testimonial">
+            ⭐⭐⭐⭐⭐
+            <p>"Fixed my broken app within 24 hours."</p>
+            <h4>– Amit Patel</h4>
+        </div>
+    </div>
+</section>
 
 <section id="pricing">
 <h2 style="text-align:center; margin-bottom:50px;">Pricing Plans</h2>
@@ -696,6 +848,24 @@ nav a{
 <p>Unlimited Pages<br>Custom Design</p>
 </div>
 </div>
+</section>
+<section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <h4>How long does a website take?</h4>
+        <p>3–7 days depending on features.</p>
+    </div>
+
+    <div class="faq-item">
+        <h4>Do you fix existing websites?</h4>
+        <p>Yes, we repair and optimize websites & apps.</p>
+    </div>
+
+    <div class="faq-item">
+        <h4>Do you provide support?</h4>
+        <p>Yes, we provide maintenance & support services.</p>
+    </div>
 </section>
 <section id="contact">
 <form onsubmit="sendToWhatsApp(event)">
@@ -747,6 +917,27 @@ function sendToWhatsApp(e){
 
     window.open(url, "_blank");
 }
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach(counter => {
+    counter.innerText = "0";
+
+    const updateCounter = () => {
+        const target = +counter.getAttribute("data-target");
+        const c = +counter.innerText;
+
+        const increment = target / 100;
+
+        if(c < target){
+            counter.innerText = Math.ceil(c + increment);
+            setTimeout(updateCounter, 20);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    updateCounter();
+});
 </script>
 </body>
 </html>
